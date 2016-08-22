@@ -8,5 +8,14 @@ if [ -z "$CHISEL_PASSWORD" ]; then
 fi
 echo "{\"$CHISEL_USER:$CHISEL_PASSWORD\":[\"^10.*\"]}" > /userfile
 cat userfile
-chisel server --authfile userfile
 
+echo "Chisel is a utility that allows you to create a secure"
+echo "tunnel between your local system and NDS Labs. This "
+echo "allows you to access non-HTTP services.  To use Chisel: "
+echo "   * Download the Chisel client for your platform from https://github.com/jpillora/chisel/releases/tag/1.1.3"
+echo "   * chisel client --auth=$CHISEL_USER:$CHISEL_PASSWORD <Chisel Server URL> localhost:<Port>:<IP>:<Port>"
+echo "Where "
+echo "   Chisel Server URL: URL of the Chisel server in NDS Labs"
+echo "   IP: Internal IP of the service you are trying to access"
+echo "   Port: port of the service you are trying to access (e.g., MySQL)"
+chisel server --authfile userfile
